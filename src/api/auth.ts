@@ -1,6 +1,6 @@
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { apiEnv } from "@/app/api/api-env";
+import { apiEnv } from "@/api-env";
 import { db } from "./db";
 
 export const auth = betterAuth({
