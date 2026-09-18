@@ -8,7 +8,13 @@ import { Section } from "@/components/section";
 import { Card } from "@/components/card";
 import { Button } from "@/components/button";
 
-export default function Home() {
+interface BoardProps {
+  searchParams: Promise<{ q?: string }>;
+}
+
+export default async function Board({ searchParams }: BoardProps) {
+  const { q } = await searchParams;
+
   return (
     <main className="grid grid-cols-4 gap-5 flex-1 items-stretch">
       <Section.Root>
