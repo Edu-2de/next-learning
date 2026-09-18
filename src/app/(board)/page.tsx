@@ -1,12 +1,16 @@
-import {
-  ArchiveIcon,
-  MessageCircleIcon,
-  ThumbsDownIcon,
-  ThumbsUpIcon,
-} from "lucide-react";
+import { ArchiveIcon, MessageCircleIcon, ThumbsUpIcon } from "lucide-react";
 import { Section } from "@/components/section";
 import { Card } from "@/components/card";
 import { Button } from "@/components/button";
+import type { Metadata } from "next";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  //http requests
+
+  return {
+    title: "Board",
+  };
+};
 
 interface BoardProps {
   searchParams: Promise<{ q?: string }>;
