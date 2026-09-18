@@ -60,7 +60,7 @@ export const SectionContent = ({
   return (
     <div
       className={twMerge(
-        "felx flex-col gap-2.5 overflow-y-scroll p-3",
+        "felx flex-col gap-2.5 overflow-y-auto p-3",
         className,
       )}
       {...props}
