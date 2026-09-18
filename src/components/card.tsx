@@ -1,13 +1,16 @@
 import { ComponentProps } from "react";
 import { twMerge } from "tailwind-merge";
 
-interface CardRootProps extends ComponentProps<"div"> {}
+interface CardRootProps extends ComponentProps<"a"> {}
 
 export const CardRoot = ({ className, ...props }: CardRootProps) => {
   return (
-    <div
+    <a
+      href="/"
       className={twMerge(
-        "bg-navy-800 rounded-xl border-[0.5px] border-navy-500 pt-3 flex flex-col gap-1",
+        "bg-navy-700 border-[0.5px] border-navy-600 p-3 space-y-4 rounded-lg block",
+        "hover:bg-navy-600/50 hover:border-r-navy-500 transition-colors duration-150",
+        "outline-none focus-visible:ring-2 focus-visible:ring-navy-400 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950",
         className,
       )}
       {...props}
@@ -19,10 +22,7 @@ interface CardHeaderProps extends ComponentProps<"div"> {}
 
 export const CardHeader = ({ className, ...props }: CardHeaderProps) => {
   return (
-    <div
-      className={twMerge("flex items-center justify-between px-3", className)}
-      {...props}
-    />
+    <div className={twMerge("flex flex-col gap-2", className)} {...props} />
   );
 };
 
@@ -30,38 +30,23 @@ interface CardTitleProps extends ComponentProps<"span"> {}
 
 export const CardTitle = ({ className, ...props }: CardTitleProps) => {
   return (
-    <span
-      className={twMerge(
-        "bg-navy-700 rounded-lg px-3 py-1.5 flex items-center gap-2 text-xs",
-        className,
-      )}
-      {...props}
-    />
+    <span className={twMerge("text-sm font-medium", className)} {...props} />
   );
 };
 
-interface CardIssueCountProps extends ComponentProps<"span"> {}
+interface CardNumberProps extends ComponentProps<"span"> {}
 
-export const CardIssueCount = ({
-  className,
-  ...props
-}: CardIssueCountProps) => {
+export const CardNumber = ({ className, ...props }: CardNumberProps) => {
   return (
     <span className={twMerge("text-xs text-navy-200", className)} {...props} />
   );
 };
 
-interface CardContentProps extends ComponentProps<"div"> {}
+interface CardFooterProps extends ComponentProps<"div"> {}
 
-export const CardContent = ({ className, ...props }: CardContentProps) => {
+export const CardFooter = ({ className, ...props }: CardFooterProps) => {
   return (
-    <div
-      className={twMerge(
-        "felx flex-col gap-2.5 overflow-y-scroll p-3",
-        className,
-      )}
-      {...props}
-    />
+    <div className={twMerge("flex items-center gap-2", className)} {...props} />
   );
 };
 
@@ -69,6 +54,6 @@ export const Card = {
   Root: CardRoot,
   Header: CardHeader,
   Title: CardTitle,
-  IssueContent: CardIssueCount,
-  Content: CardContent,
+  Number: CardNumber,
+  Footer: CardFooter,
 };
